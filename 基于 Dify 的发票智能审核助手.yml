@@ -1,0 +1,854 @@
+app:
+  description: ''
+  icon: 🔍
+  icon_background: '#FFE4E8'
+  icon_type: emoji
+  mode: workflow
+  name: 发票审核（代码修改）
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/tongyi:0.0.46@8e73008929dbc3934936493d442fab4c34ef016ae817b144b45da278ba76580e
+    version: null
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/deepseek:0.0.6@dd589dc093c8084925858034ab5ec1fdf0d33819f43226c2f8c4a749a9acbbb2
+    version: null
+kind: app
+version: 0.6.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        attachment_image_file_size_limit: 2
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        file_upload_limit: 20
+        image_file_batch_limit: 10
+        image_file_size_limit: 10
+        single_chunk_attachment_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: list-operator
+      id: 1760760738509-source-1760760788352-target
+      source: '1760760738509'
+      sourceHandle: source
+      target: '1760760788352'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: list-operator
+        targetType: iteration
+      id: 1760760788352-source-1760760901346-target
+      source: '1760760788352'
+      sourceHandle: source
+      target: '1760760901346'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: list-operator
+      id: 1760760738509-source-1760760914575-target
+      source: '1760760738509'
+      sourceHandle: source
+      target: '1760760914575'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1760760901346'
+        sourceType: iteration-start
+        targetType: llm
+      id: 1760760901346start-source-1760761076154-target
+      source: 1760760901346start
+      sourceHandle: source
+      target: '1760761076154'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1760760975262'
+        sourceType: document-extractor
+        targetType: llm
+      id: 1760761677126-source-1760761692412-target
+      source: '1760761677126'
+      sourceHandle: source
+      target: '1760761692412'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1760760975262'
+        sourceType: iteration-start
+        targetType: document-extractor
+      id: 1760760975262start-source-1760761677126-target
+      source: 1760760975262start
+      sourceHandle: source
+      target: '1760761677126'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: iteration
+        targetType: code
+      id: 1760760901346-source-1760762862703-target
+      source: '1760760901346'
+      sourceHandle: source
+      target: '1760762862703'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: code
+      id: 1760762862703-source-1760765077341-target
+      source: '1760762862703'
+      sourceHandle: source
+      target: '1760765077341'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: code
+      id: 1760765077341-source-1760766054481-target
+      source: '1760765077341'
+      sourceHandle: source
+      target: '1760766054481'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: end
+      id: 1760766054481-source-1760763281637-target
+      source: '1760766054481'
+      sourceHandle: source
+      target: '1760763281637'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: list-operator
+        targetType: iteration
+      id: 1760760914575-source-1760760975262-target
+      source: '1760760914575'
+      sourceHandle: source
+      target: '1760760975262'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: iteration
+        targetType: code
+      id: 1760760975262-source-1760762862703-target
+      source: '1760760975262'
+      sourceHandle: source
+      target: '1760762862703'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables:
+        - allowed_file_extensions: []
+          allowed_file_types:
+          - image
+          - document
+          allowed_file_upload_methods:
+          - local_file
+          - remote_url
+          label: 上传要审核的发票
+          max_length: 5
+          options: []
+          required: true
+          type: file-list
+          variable: dfiles
+      height: 108
+      id: '1760760738509'
+      position:
+        x: -23.36276454930595
+        y: 315.915907117741
+      positionAbsolute:
+        x: -23.36276454930595
+        y: 315.915907117741
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        desc: ''
+        extract_by:
+          enabled: false
+          serial: '1'
+        filter_by:
+          conditions:
+          - comparison_operator: in
+            key: type
+            value:
+            - image
+          enabled: true
+        item_var_type: file
+        limit:
+          enabled: false
+          size: 10
+        order_by:
+          enabled: false
+          key: ''
+          value: asc
+        selected: false
+        title: 筛选图片
+        type: list-operator
+        var_type: array[file]
+        variable:
+        - '1760760738509'
+        - dfiles
+      height: 91
+      id: '1760760788352'
+      position:
+        x: 384
+        y: 282
+      positionAbsolute:
+        x: 384
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        desc: ''
+        error_handle_mode: terminated
+        height: 178
+        is_parallel: false
+        iterator_input_type: array[file]
+        iterator_selector:
+        - '1760760788352'
+        - result
+        output_selector:
+        - '1760761076154'
+        - text
+        output_type: array[string]
+        parallel_nums: 10
+        selected: false
+        start_node_id: 1760760901346start
+        title: 提取图片内容
+        type: iteration
+        width: 690
+      height: 178
+      id: '1760760901346'
+      position:
+        x: 1190.829108596656
+        y: 35.51347092646563
+      positionAbsolute:
+        x: 1190.829108596656
+        y: 35.51347092646563
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 690
+      zIndex: 1
+    - data:
+        desc: ''
+        isInIteration: true
+        selected: false
+        title: ''
+        type: iteration-start
+      draggable: false
+      height: 48
+      id: 1760760901346start
+      parentId: '1760760901346'
+      position:
+        x: 24
+        y: 68
+      positionAbsolute:
+        x: 1214.829108596656
+        y: 103.51347092646563
+      selectable: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-iteration-start
+      width: 44
+      zIndex: 1002
+    - data:
+        desc: ''
+        extract_by:
+          enabled: false
+          serial: '1'
+        filter_by:
+          conditions:
+          - comparison_operator: in
+            key: type
+            value:
+            - document
+          enabled: true
+        item_var_type: file
+        limit:
+          enabled: false
+          size: 10
+        order_by:
+          enabled: false
+          key: ''
+          value: asc
+        selected: false
+        title: 筛选pdf
+        type: list-operator
+        var_type: array[file]
+        variable:
+        - '1760760738509'
+        - dfiles
+      height: 91
+      id: '1760760914575'
+      position:
+        x: 384
+        y: 468.2964254707359
+      positionAbsolute:
+        x: 384
+        y: 468.2964254707359
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        desc: ''
+        error_handle_mode: terminated
+        height: 182
+        is_parallel: false
+        iterator_input_type: array[file]
+        iterator_selector:
+        - '1760760914575'
+        - result
+        output_selector:
+        - '1760761692412'
+        - text
+        output_type: array[string]
+        parallel_nums: 10
+        selected: false
+        start_node_id: 1760760975262start
+        title: 提取PDF内容
+        type: iteration
+        width: 887
+      height: 182
+      id: '1760760975262'
+      position:
+        x: 783.181774920512
+        y: 400.8720956043867
+      positionAbsolute:
+        x: 783.181774920512
+        y: 400.8720956043867
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 887
+      zIndex: 1
+    - data:
+        desc: ''
+        isInIteration: true
+        selected: false
+        title: ''
+        type: iteration-start
+      draggable: false
+      height: 48
+      id: 1760760975262start
+      parentId: '1760760975262'
+      position:
+        x: 24
+        y: 68
+      positionAbsolute:
+        x: 807.181774920512
+        y: 468.8720956043867
+      selectable: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-iteration-start
+      width: 44
+      zIndex: 1002
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1760760901346'
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: qwen-vl-plus
+          provider: langgenius/tongyi/tongyi
+        prompt_template:
+        - id: 9ac0bbd4-581b-4b80-ba1c-b668fbcd238c
+          role: system
+          text: '识别接下来从发票中提取的文本信息，以下面json的格式输出，切记不要携带md语法标记：
+
+            {
+
+            "file_name":"文件的名称，从文件相关信息中提取",
+
+            "file_type":"文件的类型，从文件相关信息中提取"
+
+            "payer_name":"购买方公司名",
+
+            "taxpayer_num":"购买方统一社会信用代码{{#context#}} "project_name":"项目名称，仅提取`*`包裹的内容",
+
+            "invoicing_date":"开票日期，使用 YYYY-MM-DD 格式输出",
+
+            "tax_num":"发票号码",
+
+            "total_price":"价税合计总结额，小写数字，不含人民币标识符号"
+
+            }'
+        - id: 401816ef-597d-4b72-b33d-04baa639a9cd
+          role: user
+          text: '文件相关信息：
+
+            <file_data>
+
+            {{#1760760901346.item.name#}}
+
+            {{#1760760901346.item.type#}}
+
+            </file_data>'
+        selected: false
+        structured_output:
+          schema:
+            additionalProperties: false
+            properties:
+              file_name:
+                description: 文件的名称，从文件相关信息中提取
+                type: string
+              file_type:
+                description: 文件的类型，从文件相关信息中提取
+                type: string
+              invoicing_date:
+                description: 开票日期
+                type: string
+              payer_name:
+                description: 付款方企业名称
+                type: string
+              project_name:
+                description: 项目名称
+                type: string
+              tax_num:
+                description: 发票号码
+                type: string
+              taxpayer_num:
+                description: 付款方统一社会信用代码/纳税人识别号
+                type: string
+              total_price:
+                description: 价税合计小写金额
+                type: number
+            required:
+            - payer_name
+            - taxpayer_num
+            - project_name
+            - invoicing_date
+            - tax_num
+            - total_price
+            - file_name
+            - file_type
+            type: object
+        structured_output_enabled: false
+        title: LLM视觉识别
+        type: llm
+        variables: []
+        vision:
+          configs:
+            detail: high
+            variable_selector:
+            - '1760760901346'
+            - item
+          enabled: true
+      height: 87
+      id: '1760761076154'
+      parentId: '1760760901346'
+      position:
+        x: 130
+        y: 67.0469481333914
+      positionAbsolute:
+        x: 1320.829108596656
+        y: 102.56041905985703
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 1002
+    - data:
+        desc: ''
+        isInIteration: true
+        isInLoop: false
+        is_array_file: false
+        iteration_id: '1760760975262'
+        selected: false
+        title: 文档提取器
+        type: document-extractor
+        variable_selector:
+        - '1760760975262'
+        - item
+      height: 103
+      id: '1760761677126'
+      parentId: '1760760975262'
+      position:
+        x: 208.90309921074572
+        y: 66.71873157433185
+      positionAbsolute:
+        x: 992.0848741312577
+        y: 467.59082717871854
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 1002
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        isInIteration: true
+        isInLoop: false
+        iteration_id: '1760760975262'
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-chat
+          provider: langgenius/deepseek/deepseek
+        prompt_template:
+        - id: d4af6c8a-eac8-45fb-a761-eae79a4e739a
+          role: system
+          text: '识别接下来从发票中提取的文本信息，以下面的json格式输出：
+
+            {
+
+            "file_name":"文件的名称，从文件相关信息中提取",
+
+            "file_type":"文件的类型，从文件相关信息中提取",
+
+            "payer_name":"购买方公司名",
+
+            "taxpayer_num":"购买方统一社会信用代码{{#context#}}"project_name":"项目名称，仅提取`*`包裹的内容",
+
+            "invoicing_date":"开票日期，使用 YYYY-MM-DD 格式输出",
+
+            "tax_num":"发票号码",
+
+            "total_price":"价税合计总结额，小写数字，不含人民币标识符号"
+
+            }'
+        - id: 2ba61e7c-fe77-4923-8e86-d72363465edb
+          role: user
+          text: '发票中提取的文本：
+
+            <content>
+
+            {{#1760761677126.text#}}
+
+            </content>
+
+            文件相关信息：
+
+            <file_data>
+
+            {{#1760760975262.item.name#}}
+
+            {{#1760760975262.item.type#}}
+
+            </file_data>'
+        selected: false
+        structured_output:
+          schema:
+            additionalProperties: false
+            properties:
+              file_name:
+                description: 文件的名称，从文件相关信息中提取
+                type: string
+              file_type:
+                description: 文件的类型，从文件相关信息中提取
+                type: string
+              invoicing_date:
+                description: 开票日期
+                type: string
+              payer_name:
+                description: 付款方企业名称
+                type: string
+              project_name:
+                description: 项目名称
+                type: string
+              tax_num:
+                description: 发票号码
+                type: string
+              taxpayer_num:
+                description: 付款方统一社会信用代码/纳税人识别号
+                type: string
+              total_price:
+                description: 价税合计小写金额
+                type: number
+            required:
+            - payer_name
+            - taxpayer_num
+            - project_name
+            - invoicing_date
+            - tax_num
+            - total_price
+            - file_type
+            type: object
+        structured_output_enabled: false
+        title: LLM结构化提取
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 87
+      id: '1760761692412'
+      parentId: '1760760975262'
+      position:
+        x: 583.372862622494
+        y: 65
+      positionAbsolute:
+        x: 1366.554637543006
+        y: 465.8720956043867
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+      zIndex: 1002
+    - data:
+        code: "import json\nimport re\n\ndef main(arg1: list, arg2: list) -> dict:\n\
+          \    # 关键修复：None 转为空列表，避免不可迭代\n    arg1 = arg1 if arg1 is not None else\
+          \ []\n    arg2 = arg2 if arg2 is not None else []\n    \n    result = []\n\
+          \    for data_list in [arg1, arg2]:\n        for item in data_list:\n  \
+          \          if not item:\n                continue\n            # 提取 ```json\
+          \ 代码块\n            json_match = re.search(r'```json\\n(.*?)\\n```', item,\
+          \ re.DOTALL)\n            if json_match:\n                json_str = json_match.group(1).strip()\n\
+          \            else:\n                json_str = item.strip()\n          \
+          \  try:\n                json_data = json.loads(json_str)\n            \
+          \    result.append(json_data)\n            except json.JSONDecodeError:\n\
+          \                continue\n    return {'result': result}"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: array[object]
+        selected: false
+        title: 合并
+        type: code
+        variables:
+        - value_selector:
+          - '1760760901346'
+          - output
+          value_type: array[object]
+          variable: arg1
+        - value_selector:
+          - '1760760975262'
+          - output
+          value_type: array[string]
+          variable: arg2
+      height: 51
+      id: '1760762862703'
+      position:
+        x: 1930.7831502017336
+        y: 257.71916982674225
+      positionAbsolute:
+        x: 1930.7831502017336
+        y: 257.71916982674225
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1760766054481'
+          - result
+          value_type: string
+          variable: result
+        selected: false
+        title: 结果
+        type: end
+      height: 87
+      id: '1760763281637'
+      position:
+        x: 3020.8284588781744
+        y: 293.17726614403153
+      positionAbsolute:
+        x: 3020.8284588781744
+        y: 293.17726614403153
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "import re\nfrom datetime import datetime\n\n\ndef main(data: list)\
+          \ -> dict:\n    result = []\n    for item in data:\n        if item is None:\n\
+          \            continue\n        temp = item.copy()\n        is_ok = True\n\
+          \        reason = ''\n        \n        if temp.get('payer_name') != '上海爱美服装有限责任公司':\n\
+          \            is_ok = False\n            reason = '`payer_name`字段有误'\n  \
+          \          \n        if temp.get('taxpayer_num', '').strip() != '310456HJK154876297':\n\
+          \            is_ok = False\n            reason = '`taxpayer_num`字段有误'\n\
+          \            \n        if not any(x in temp.get('project_name', '') for\
+          \ x in ['住宿服务', '咨询服务', '餐饮服务', '生活服务', '家政服务', '保洁', '*服装*精品女装A款']):\n\
+          \            is_ok = False\n            reason = '`project_name`字段有误'\n\
+          \            \n        if temp.get('invoicing_date', '')[:4] < '2021':\n\
+          \            is_ok = False\n            reason = '`invoicing_date`字段有误'\n\
+          \            \n        if temp.get('tax_num') in [\"40898108\", \"25112000000211955160\"\
+          ]:\n            is_ok = False\n            reason = '`tax_num`字段有误'\n  \
+          \          \n        temp['is_ok'] = is_ok\n        temp['reason'] = reason\n\
+          \        result.append(temp)\n        \n    return {'result': result}"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: array[object]
+        selected: false
+        title: 发票审核
+        type: code
+        variables:
+        - value_selector:
+          - '1760762862703'
+          - result
+          value_type: array[object]
+          variable: data
+      height: 51
+      id: '1760765077341'
+      position:
+        x: 2198.5011614061805
+        y: 293.17726614403153
+      positionAbsolute:
+        x: 2198.5011614061805
+        y: 293.17726614403153
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        code: "import json\n\ndef main(arg1: str) -> dict:\n    data = arg1\n    passed\
+          \ = []\n    failed = []\n    for item in data:\n        if item['is_ok']:\n\
+          \            passed.append({k: v for k, v in item.items() if k not in ['is_ok',\
+          \ 'reason']})\n        else:\n            failed.append({k: v for k, v in\
+          \ item.items() if k != 'is_ok'})\n    \n    def markdown_table(items):\n\
+          \        if not items:\n            return '*（无记录）*'\n        headers =\
+          \ list(items[0].keys())\n        table = [\"| \" + \" | \".join(headers)\
+          \ + \" |\"]\n        table.append(\"|\" + \"|\".join([\"---\"] * len(headers))\
+          \ + \"|\")\n        for item in items:\n            row = \" | \" + \" |\
+          \ \".join(str(item[k]) for k in headers) + \" |\"\n            table.append(row)\n\
+          \        return \"\\n\".join(table)\n    \n    result = f\"通过审核的发票：\\n{markdown_table(passed)}\\\
+          n\\n未通过审核的发票：\\n{markdown_table(failed)}\"\n    return {'result': result}"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 结构化输出 表格
+        type: code
+        variables:
+        - value_selector:
+          - '1760765077341'
+          - result
+          value_type: array[object]
+          variable: arg1
+      height: 51
+      id: '1760766054481'
+      position:
+        x: 2610.965903125864
+        y: 293.17726614403153
+      positionAbsolute:
+        x: 2610.965903125864
+        y: 293.17726614403153
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    viewport:
+      x: -318.9899334850992
+      y: 288.8570475725976
+      zoom: 0.6299605660760338
+  rag_pipeline_variables: []
